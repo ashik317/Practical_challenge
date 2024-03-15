@@ -1,0 +1,15 @@
+{% extends 'asset_menagemanent/base.html' %}
+
+{% block title %}Company List{% endblock %}
+
+{% block body_block %}
+    <h1>Company List</h1>
+    <ul>
+        {% for company in companies %}
+            <li><a href="{% url 'company-detail' company.pk %}">{{ company.name }}</a></li>
+        {% empty %}
+            <li>No companies found.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'company-create' %}">Create New Company</a>
+{% endblock %}
